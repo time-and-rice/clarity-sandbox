@@ -58,12 +58,14 @@ const Newsletter = () => {
                 {error && <p className="mt-2 text-red-300">{error}</p>}
               </div>
 
-              <div className="text-sm">
+              <div>
                 <label className="flex items-center justify-center gap-2">
-                  <div className="flex-0 flex  justify-center">
-                    <input type="checkbox" className="rounded" />
+                  <div className="flex-0 flex justify-center">
+                    <input type="checkbox" name="privacy" required />
                   </div>
-                  プライバシーポリシーに同意します
+                  <span className="text-sm">
+                    プライバシーポリシーに同意します
+                  </span>
                 </label>
               </div>
             </form>

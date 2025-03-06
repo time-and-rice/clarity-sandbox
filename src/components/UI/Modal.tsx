@@ -36,9 +36,9 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
         aria-hidden="true"
       />
 
-      <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-auto">
+      <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-auto text-dark">
         <div className="flex items-center justify-between p-4 border-b">
-          <h3 className="text-xl font-semibold">{title}</h3>
+          <h3 className="text-xl font-semibold text-dark">{title}</h3>
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 focus:outline-none"
@@ -61,7 +61,7 @@ const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
           </button>
         </div>
 
-        <div className="p-4">{children}</div>
+        <div className="p-4 text-dark">{children}</div>
       </div>
     </div>
   );

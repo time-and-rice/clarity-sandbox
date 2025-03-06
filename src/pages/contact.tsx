@@ -141,13 +141,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="flex items-center">
-                      <input
-                        type="checkbox"
-                        name="privacy"
-                        className="mr-2"
-                        required
-                      />
+                    <label className="flex items-center justify-center gap-2">
+                      <div className="flex-0 flex justify-center">
+                        <input type="checkbox" name="privacy" required />
+                      </div>
                       <span className="text-sm">
                         プライバシーポリシーに同意します
                       </span>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import Modal from "../UI/Modal";
 
 interface Product {
   id: number;
@@ -88,21 +89,50 @@ const ProductList = () => {
         </div>
 
         {selectedProduct && (
-          <div
-            style={{ backgroundColor: "var(--color-light)" }}
-            className="mt-8 p-6 rounded-lg"
+          <Modal
+            isOpen={!!selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            title={`プラン詳細: ${selectedProduct.name}`}
           >
-            <h3 className="text-2xl font-bold mb-4">
-              選択されたプラン: {selectedProduct.name}
-            </h3>
-            <p className="mb-2">
-              価格:{" "}
-              {selectedProduct.price === 0
-                ? "無料"
-                : `¥${selectedProduct.price.toLocaleString()}`}
-            </p>
-            <p>{selectedProduct.description}</p>
-          </div>
+            <div className="space-y-4">
+              <div className="relative h-48 w-full">
+                <Image
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold mb-2">
+                  {selectedProduct.name}
+                </h3>
+                <p className="text-lg font-bold mb-2">
+                  価格:{" "}
+                  {selectedProduct.price === 0
+                    ? "無料"
+                    : `¥${selectedProduct.price.toLocaleString()}`}
+                </p>
+                <p className="mb-4">{selectedProduct.description}</p>
+                <div className="mt-4 flex space-x-4">
+                  <button
+                    className="btn btn-primary flex-1"
+                    onClick={() =>
+                      console.log(`申し込み: ${selectedProduct.name}`)
+                    }
+                  >
+                    申し込む
+                  </button>
+                  <button
+                    className="btn btn-outline flex-1"
+                    onClick={() => setSelectedProduct(null)}
+                  >
+                    閉じる
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Modal>
         )}
       </div>
     </section>
