@@ -147,7 +147,7 @@ const Timeline = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [events.length]);
 
   return (
     <section className="py-16 bg-gray-50">
